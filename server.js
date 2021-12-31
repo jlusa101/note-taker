@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const { notes } = require("./db/notes.json");
 
 const PORT = process.env.PORT || 3504;
 
@@ -20,6 +21,13 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
+
+app.get('/api/notes', (req, res) => {
+    let results = notes;
+
+    res.json(results);
+});
+
 
 // Listening on the specified port and informing user
 app.listen(PORT, () => {
