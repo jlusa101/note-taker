@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const fs = require('fs');
 const path = require('path');
 
@@ -21,4 +22,14 @@ function validateNote(note) {
     return true;
 }
 
-module.exports = { newEntry, validateNote };
+function deleteNote(noteId, noteArray) {
+    noteArray.splice(noteId, 1);
+    fs.writeFileSync(
+        path.join(__dirname, '../../../db/notes.json'),
+        JSON.stringify({ notes: noteArray }, null, 2)
+    );
+
+    return noteArray;
+}
+
+module.exports = { newEntry, validateNote, deleteNote };
