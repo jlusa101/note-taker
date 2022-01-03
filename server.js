@@ -1,18 +1,24 @@
+// Required packages
 const express = require('express');
 const apiRoutes = require('./public/routes/apiRoutes');
 const htmlRoutes = require('./public/routes/htmlRoutes');
 
+// Constant PORT variable
 const PORT = process.env.PORT || 3001;
 
+// Instantiating a new Express server
 const app = express();
 
-// parse incoming string or array data
+// Parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
-// parse incoming JSON data
+
+// Parse incoming JSON data
 app.use(express.json());
+
 // Include public directory's content in the application
 app.use(express.static('public'));
 
+// Informing the server to use these directories for routes
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
