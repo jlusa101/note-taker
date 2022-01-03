@@ -25,8 +25,8 @@ https://desolate-beach-80284.herokuapp.com/
 * Node.js
 * Express.js
 
-## Screenshots
-
+## Video
+https://user-images.githubusercontent.com/91491552/147987280-6fcb25cb-b312-48c3-bbaf-5fe1a48a7326.mp4
 
 ## Contribution
 Made by Joona Lusa
